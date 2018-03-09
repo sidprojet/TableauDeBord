@@ -26,8 +26,8 @@ for page in client.get_search_iterator(query):
             with open(path+'_cannabis_fr' + num_fichier + '.json', 'a') as f:
                 json.dump(all_tweet, f, ensure_ascii = False)
             all_tweet = {}
-    
-### CREER LE DF pour les stocker et les traiter        
+
+### CREER LE DF pour les stocker et les traiter
 df = pd.DataFrame(columns=["lang", "date", "texte", "hashtags"])
 directory = os.fsencode(path)
 
@@ -35,7 +35,7 @@ rows = 0
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
     if filename.endswith(".json"):
-        with open(path+filename) as data_file:    
+        with open(path+filename) as data_file:
             data = json.load(data_file)
             for v in data.values():
                 df.at[rows, "lang"] =  v["lang"]
