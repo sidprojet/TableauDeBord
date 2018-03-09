@@ -4,10 +4,11 @@ import os
 import pandas as pd
 
 client = TwitterClient()
-query = SearchQuery('légalisation #cannabis  since:2016-01-01')
-path = '/home/formationsid/Documents/M1SID/TableauDeBord/TwitterWebsiteSearch-master/collecte/France/'
+query = SearchQuery('légalisation #cannabis')
+path = '/home/formationsid/Documents/M1SID/TableauDeBord/TwitterWebsiteSearch-master/donnees/'
 #USER = 'R'
 #OR #marijuana #France  '
+#since:2016-01-01
 count = 0
 all_tweet = {}
 for page in client.get_search_iterator(query):
