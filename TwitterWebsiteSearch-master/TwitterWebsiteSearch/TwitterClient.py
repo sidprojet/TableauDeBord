@@ -88,7 +88,10 @@ class TwitterClient():
 
         if len(tweets) > 0:
             min_id = tweets[0]['id_str']
-            max_id = tweets[1]['id_str']
+            try:
+                max_id = tweets[1]['id_str']
+            except IndexError:
+                max_id = min_id+1
 
         retval = {
                 '_request': request,
